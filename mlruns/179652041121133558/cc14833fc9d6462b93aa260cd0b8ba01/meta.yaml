@@ -1,0 +1,15 @@
+artifact_uri: /Users/adilkanatov/Downloads/practical-task-6-ml/mlruns/artifacts/179652041121133558/cc14833fc9d6462b93aa260cd0b8ba01/artifacts
+end_time: 1776771129947
+entry_point_name: ''
+experiment_id: '179652041121133558'
+lifecycle_stage: active
+run_id: cc14833fc9d6462b93aa260cd0b8ba01
+run_name: stately-goose-837
+run_uuid: cc14833fc9d6462b93aa260cd0b8ba01
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776771127095
+status: 3
+tags: []
+user_id: adilkanatov

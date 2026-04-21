@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1776771129940
+current_stage: None
+description: ''
+last_updated_timestamp: 1776771129940
+name: wine-classifier
+run_id: cc14833fc9d6462b93aa260cd0b8ba01
+run_link: ''
+source: /Users/adilkanatov/Downloads/practical-task-6-ml/mlruns/artifacts/179652041121133558/cc14833fc9d6462b93aa260cd0b8ba01/artifacts/model
+status: READY
+status_message: null
+storage_location: /Users/adilkanatov/Downloads/practical-task-6-ml/mlruns/artifacts/179652041121133558/cc14833fc9d6462b93aa260cd0b8ba01/artifacts/model
+user_id: null
+version: 1
