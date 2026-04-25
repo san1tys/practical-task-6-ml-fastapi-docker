@@ -5,49 +5,48 @@ import streamlit as st
 
 API_URL = os.environ.get("API_URL", "http://localhost:8000")
 
-st.set_page_config(page_title="Wine Classifier", layout="centered")
-st.title("Wine Classifier")
-st.write("Enter wine chemical features to predict the wine class.")
+st.set_page_config(page_title="Wine Quality Predictor", layout="centered")
+st.title("Wine Quality Predictor")
+st.write(
+    "Enter wine physicochemical features to predict quality: "
+    "**quality_low** (3–5), **quality_medium** (6), **quality_high** (7–8)."
+)
 
 with st.form("prediction_form"):
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        alcohol = st.number_input("Alcohol", value=14.23, format="%.2f")
-        malic_acid = st.number_input("Malic Acid", value=1.71, format="%.2f")
-        ash = st.number_input("Ash", value=2.43, format="%.2f")
-        alcalinity_of_ash = st.number_input("Alcalinity of Ash", value=15.60, format="%.2f")
-        magnesium = st.number_input("Magnesium", value=127.0, format="%.1f")
+        fixed_acidity = st.number_input("Fixed Acidity", value=7.4, format="%.2f")
+        volatile_acidity = st.number_input("Volatile Acidity", value=0.70, format="%.2f")
+        citric_acid = st.number_input("Citric Acid", value=0.0, format="%.2f")
+        residual_sugar = st.number_input("Residual Sugar", value=1.9, format="%.2f")
 
     with col2:
-        total_phenols = st.number_input("Total Phenols", value=2.80, format="%.2f")
-        flavanoids = st.number_input("Flavanoids", value=3.06, format="%.2f")
-        nonflavanoid_phenols = st.number_input("Nonflavanoid Phenols", value=0.28, format="%.2f")
-        proanthocyanins = st.number_input("Proanthocyanins", value=2.29, format="%.2f")
+        chlorides = st.number_input("Chlorides", value=0.076, format="%.3f")
+        free_sulfur_dioxide = st.number_input("Free Sulfur Dioxide", value=11.0, format="%.1f")
+        total_sulfur_dioxide = st.number_input("Total Sulfur Dioxide", value=34.0, format="%.1f")
+        density = st.number_input("Density", value=0.9978, format="%.4f")
 
     with col3:
-        color_intensity = st.number_input("Color Intensity", value=5.64, format="%.2f")
-        hue = st.number_input("Hue", value=1.04, format="%.2f")
-        od280_od315_of_diluted_wines = st.number_input("OD280/OD315", value=3.92, format="%.2f")
-        proline = st.number_input("Proline", value=1065.0, format="%.1f")
+        pH = st.number_input("pH", value=3.51, format="%.2f")
+        sulphates = st.number_input("Sulphates", value=0.56, format="%.2f")
+        alcohol = st.number_input("Alcohol", value=9.4, format="%.2f")
 
     submitted = st.form_submit_button("Predict", use_container_width=True)
 
 if submitted:
     payload = {
+        "fixed_acidity": fixed_acidity,
+        "volatile_acidity": volatile_acidity,
+        "citric_acid": citric_acid,
+        "residual_sugar": residual_sugar,
+        "chlorides": chlorides,
+        "free_sulfur_dioxide": free_sulfur_dioxide,
+        "total_sulfur_dioxide": total_sulfur_dioxide,
+        "density": density,
+        "pH": pH,
+        "sulphates": sulphates,
         "alcohol": alcohol,
-        "malic_acid": malic_acid,
-        "ash": ash,
-        "alcalinity_of_ash": alcalinity_of_ash,
-        "magnesium": magnesium,
-        "total_phenols": total_phenols,
-        "flavanoids": flavanoids,
-        "nonflavanoid_phenols": nonflavanoid_phenols,
-        "proanthocyanins": proanthocyanins,
-        "color_intensity": color_intensity,
-        "hue": hue,
-        "od280_od315_of_diluted_wines": od280_od315_of_diluted_wines,
-        "proline": proline,
     }
 
     try:
